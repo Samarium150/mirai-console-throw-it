@@ -42,12 +42,12 @@ object MiraiConsoleThrowIt: KotlinPlugin(
     override fun onEnable() {
         Throw.register()
         Clean.register()
-        logger.info("mirai-console-throw-it loaded")
+        logger.info("Plugin mirai-console-throw-it loaded")
     }
 
     override fun onDisable() {
         Throw.unregister()
         Clean.unregister()
-        logger.info("mirai-console-throw-it unloaded")
+        logger.info("Plugin mirai-console-throw-it unloaded")
     }
 }

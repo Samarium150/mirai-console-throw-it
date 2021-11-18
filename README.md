@@ -1,7 +1,7 @@
 # mirai-console-throw-it
 
 [![GitHub top language](https://img.shields.io/github/languages/top/Samarium150/mirai-console-throw-it?style=flat)](https://kotlinlang.org/)
-[![Gradle CI](https://github.com/Samarium150/mirai-console-throw-it/workflows/Gradle%20CI/badge.svg?branch=master)](https://github.com/Samarium150/mirai-console-throw-it/actions?query=workflow%3A%22Gradle+CI%22)
+[![Gradle CI](https://github.com/Samarium150/mirai-console-throw-it/actions/workflows/Gradle%20CI.yml/badge.svg)](https://github.com/Samarium150/mirai-console-throw-it/actions/workflows/Gradle%20CI.yml)
 [![GitHub](https://img.shields.io/github/license/Samarium150/mirai-console-throw-it?style=flat)](https://github.com/Samarium150/mirai-console-throw-it/blob/master/LICENSE)
 
 Fork自 [ThrowIt-Mirai](https://github.com/MoeMegu/ThrowIt-Mirai)
@@ -23,6 +23,10 @@ Fork自 [ThrowIt-Mirai](https://github.com/MoeMegu/ThrowIt-Mirai)
 (/)丢 <@目标> 或 (/)throw <@目标>
 
 使用 (/)th-clean 清理数据目录
+
+![example](docs/example.png)
+
+![result](docs/result.png)
 
 ## Reference
 

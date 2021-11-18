@@ -1,3 +1,19 @@
+/**
+ * Copyright (c) 2020-2021 Samarium
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>
+ */
 package com.github.samarium150.command
 
 import com.github.samarium150.MiraiConsoleThrowIt
@@ -46,8 +62,11 @@ object Throw: SimpleCommand(
         val result = File(resultPath)
         if (!result.exists()) {
             try {
+                @Suppress("BlockingMethodInNonBlockingContext")
                 val avatarUrl = URL(target.avatarUrl)
+                @Suppress("BlockingMethodInNonBlockingContext")
                 val avatar = ImageIO.read(avatarUrl)
+
                 var processedAvatar = BufferedImage(avatar.width, avatar.height, BufferedImage.TYPE_INT_ARGB)
                 var graphics = processedAvatar.createGraphics()
                 graphics.setRenderingHints(
@@ -56,10 +75,13 @@ object Throw: SimpleCommand(
                 graphics.clip = Ellipse2D.Double(0.0, 0.0, avatar.width.toDouble(), avatar.height.toDouble())
                 graphics.drawImage(avatar, 0, 0, null)
                 graphics.dispose()
+
+                @Suppress("BlockingMethodInNonBlockingContext")
                 processedAvatar = Thumbnails.of(processedAvatar)
                     .size(136, 136)
                     .rotate(-160.0)
                     .asBufferedImage()
+                @Suppress("BlockingMethodInNonBlockingContext")
                 processedAvatar = Thumbnails.of(processedAvatar)
                     .sourceRegion(Positions.CENTER, 136, 136)
                     .size(136, 136)
@@ -69,6 +91,8 @@ object Throw: SimpleCommand(
                 graphics.composite = AlphaComposite.getInstance(AlphaComposite.SRC_ATOP)
                 graphics.drawImage(processedAvatar, 19, 181, 137, 137, null)
                 graphics.dispose()
+
+                @Suppress("BlockingMethodInNonBlockingContext")
                 Thumbnails.of(template)
                     .size(512, 512)
                     .toFile(resultPath)
