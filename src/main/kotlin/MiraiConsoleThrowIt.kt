@@ -16,6 +16,10 @@
  */
 package com.github.samarium150
 
+import com.github.samarium150.command.Clean
+import com.github.samarium150.command.Throw
+import net.mamoe.mirai.console.command.CommandManager.INSTANCE.register
+import net.mamoe.mirai.console.command.CommandManager.INSTANCE.unregister
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescription
 import net.mamoe.mirai.console.plugin.jvm.KotlinPlugin
 
@@ -31,11 +35,19 @@ object MiraiConsoleThrowIt: KotlinPlugin(
 
     val dataPath = System.getProperty("user.dir") + "/data/mirai-console-throw-it/"
 
+    init {
+        System.setProperty("java.awt.headless", "true")
+    }
+
     override fun onEnable() {
+        Throw.register()
+        Clean.register()
         logger.info("mirai-console-throw-it loaded")
     }
 
     override fun onDisable() {
+        Throw.unregister()
+        Clean.unregister()
         logger.info("mirai-console-throw-it unloaded")
     }
 }
