@@ -25,6 +25,7 @@ import java.awt.geom.Ellipse2D
 import java.awt.image.BufferedImage
 import java.io.File
 import java.net.URL
+import java.time.ZoneId
 import java.util.*
 import javax.imageio.ImageIO
 
@@ -70,5 +71,14 @@ object Utils {
                 }
             }
         }
+    }
+
+    fun getMidnight(): Date {
+        val date = Date.from(
+            Date().toInstant().atZone(ZoneId.systemDefault())
+                .toLocalDate().atStartOfDay(ZoneId.systemDefault()).toInstant()
+        )
+        date.time += 24 * 60 * 60 * 1000
+        return date
     }
 }

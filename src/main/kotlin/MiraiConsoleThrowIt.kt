@@ -27,7 +27,7 @@ object MiraiConsoleThrowIt: KotlinPlugin(
     JvmPluginDescription(
         id = "com.github.samarium150.mirai-console-throw-it",
         name = "mirai-console-throw-it",
-        version = "1.0.0"
+        version = "1.1.0"
     ) {
         author("Samarium150")
     },

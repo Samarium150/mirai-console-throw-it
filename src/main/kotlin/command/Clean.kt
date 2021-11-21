@@ -23,6 +23,7 @@ import net.mamoe.mirai.console.command.SimpleCommand
 import net.mamoe.mirai.console.command.descriptor.ExperimentalCommandDescriptors
 import net.mamoe.mirai.console.util.ConsoleExperimentalApi
 import java.io.File
+import java.util.*
 
 object Clean: SimpleCommand(
     MiraiConsoleThrowIt,
@@ -34,11 +35,36 @@ object Clean: SimpleCommand(
     @ExperimentalCommandDescriptors
     override val prefixOptional: Boolean = true
 
+    private val cacheDir = File(MiraiConsoleThrowIt.dataPath)
+
+    private val scheduler = Timer()
+
+    private val task = object : TimerTask() {
+        override fun run() {
+            Utils.cleanupDirectory(cacheDir)
+                .onFailure {
+                    MiraiConsoleThrowIt.logger.error("定时清理缓存失败", it)
+                }
+                .onSuccess {
+                    MiraiConsoleThrowIt.logger.info("定时清理缓存成功")
+                }
+        }
+    }
+
+    init {
+        scheduler.scheduleAtFixedRate(task, Utils.getMidnight(), 24 * 60 * 60 * 1000)
+    }
+
+    @Suppress("unused")
+    fun finalize() {
+        task.cancel()
+        scheduler.cancel()
+    }
+
     @Suppress("unused")
     @Handler
     suspend fun CommandSender.handle() {
-        val dir = File(MiraiConsoleThrowIt.dataPath)
-        Utils.cleanupDirectory(dir)
+        Utils.cleanupDirectory(cacheDir)
             .onFailure { exception ->
                 run {
                     MiraiConsoleThrowIt.logger.error(exception)

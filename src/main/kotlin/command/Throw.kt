@@ -18,7 +18,7 @@ package com.github.samarium150.command
 
 import com.github.samarium150.MiraiConsoleThrowIt
 import com.github.samarium150.Utils
-import net.mamoe.mirai.console.command.CommandSender
+import net.mamoe.mirai.console.command.CommandSenderOnMessage
 import net.mamoe.mirai.console.command.SimpleCommand
 import net.mamoe.mirai.console.command.descriptor.ExperimentalCommandDescriptors
 import net.mamoe.mirai.console.util.ConsoleExperimentalApi
@@ -53,7 +53,7 @@ object Throw: SimpleCommand(
 
     @Suppress("unused")
     @Handler
-    suspend fun CommandSender.handle(target: User) {
+    suspend fun CommandSenderOnMessage<*>.handle(target: User) {
         val resultPath = MiraiConsoleThrowIt.dataPath + target.id + ".png"
         val result = File(resultPath)
         if (!result.exists()) {
