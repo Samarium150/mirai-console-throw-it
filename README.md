@@ -16,13 +16,19 @@ Fork自 [ThrowIt-Mirai](https://github.com/MoeMegu/ThrowIt-Mirai)
 
 使用插件需要权限 com.github.samarium150.mirai-console-throw-it:command.throw
 
+使用以下指令来给所有群成员权限
+
 `> /perm permit m* com.github.samarium150.mirai-console-throw-it:command.throw`
 
 聊天环境使用命令:
 
-(/)丢 <@目标> 或 (/)throw <@目标>
+`(/)丢 <@目标>` 或 `(/)throw <@目标>`
 
-使用 (/)th-clean 清理数据目录
+也可以直接指定qq号或者在群里用`$`指代随机目标
+
+使用 `(/)th-clean` 或 `(/)清理` 来清理缓存
+
+每日00：00也会定时清理
 
 ![example](docs/example.png)
 
@@ -34,3 +40,4 @@ Fork自 [ThrowIt-Mirai](https://github.com/MoeMegu/ThrowIt-Mirai)
 
 [ThrowItBot](https://github.com/YJBeetle/ThrowItBot)
 
+[Original Picture](https://www.pixiv.net/artworks/28356129)
