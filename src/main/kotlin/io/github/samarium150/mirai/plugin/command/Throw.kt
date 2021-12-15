@@ -14,10 +14,10 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>
  */
-package com.github.samarium150.command
+package io.github.samarium150.mirai.plugin.command
 
-import com.github.samarium150.MiraiConsoleThrowIt
-import com.github.samarium150.Utils
+import io.github.samarium150.mirai.plugin.MiraiConsoleThrowIt
+import io.github.samarium150.mirai.plugin.Utils
 import net.mamoe.mirai.console.command.CommandSenderOnMessage
 import net.mamoe.mirai.console.command.SimpleCommand
 import net.mamoe.mirai.console.command.descriptor.ExperimentalCommandDescriptors

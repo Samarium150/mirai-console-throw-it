@@ -14,26 +14,28 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>
  */
-package com.github.samarium150
+package io.github.samarium150.mirai.plugin
 
-import com.github.samarium150.command.Clean
-import com.github.samarium150.command.Throw
+import io.github.samarium150.mirai.plugin.command.Clean
+import io.github.samarium150.mirai.plugin.command.Throw
 import net.mamoe.mirai.console.command.CommandManager.INSTANCE.register
 import net.mamoe.mirai.console.command.CommandManager.INSTANCE.unregister
+import net.mamoe.mirai.console.plugin.id
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescription
 import net.mamoe.mirai.console.plugin.jvm.KotlinPlugin
 
 object MiraiConsoleThrowIt: KotlinPlugin(
     JvmPluginDescription(
-        id = "com.github.samarium150.mirai-console-throw-it",
-        name = "mirai-console-throw-it",
-        version = "1.1.0"
+        id = "io.github.samarium150.mirai.plugin.mirai-console-throw-it",
+        name = "Throw It",
+        version = "1.2.0"
     ) {
         author("Samarium150")
-    },
+        info("丢'人'插件, 用指令把@的人丢出去")
+    }
 ) {
 
-    val dataPath = System.getProperty("user.dir") + "/data/mirai-console-throw-it/"
+    val dataPath = System.getProperty("user.dir") + "/data/${id}/"
 
     init {
         System.setProperty("java.awt.headless", "true")
@@ -42,12 +44,12 @@ object MiraiConsoleThrowIt: KotlinPlugin(
     override fun onEnable() {
         Throw.register()
         Clean.register()
-        logger.info("Plugin mirai-console-throw-it loaded")
+        logger.info("Plugin loaded")
     }
 
     override fun onDisable() {
         Throw.unregister()
         Clean.unregister()
-        logger.info("Plugin mirai-console-throw-it unloaded")
+        logger.info("Plugin unloaded")
     }
 }

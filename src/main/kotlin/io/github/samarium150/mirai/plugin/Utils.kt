@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>
  */
-package com.github.samarium150
+package io.github.samarium150.mirai.plugin
 
-import com.github.samarium150.command.Throw
+import io.github.samarium150.mirai.plugin.command.Throw
 import net.coobird.thumbnailator.Thumbnails
 import net.coobird.thumbnailator.geometry.Positions
 import java.awt.AlphaComposite
