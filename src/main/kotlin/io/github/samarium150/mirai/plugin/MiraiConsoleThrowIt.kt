@@ -28,7 +28,7 @@ object MiraiConsoleThrowIt: KotlinPlugin(
     JvmPluginDescription(
         id = "io.github.samarium150.mirai.plugin.mirai-console-throw-it",
         name = "Throw It",
-        version = "1.2.0"
+        version = "1.2.1"
     ) {
         author("Samarium150")
         info("丢'人'插件, 用指令把@的人丢出去")

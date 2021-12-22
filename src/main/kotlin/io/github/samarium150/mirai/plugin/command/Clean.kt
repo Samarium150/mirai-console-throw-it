@@ -17,7 +17,8 @@
 package io.github.samarium150.mirai.plugin.command
 
 import io.github.samarium150.mirai.plugin.MiraiConsoleThrowIt
-import io.github.samarium150.mirai.plugin.Utils
+import io.github.samarium150.mirai.plugin.util.cleanupDirectory
+import io.github.samarium150.mirai.plugin.util.getMidnight
 import net.mamoe.mirai.console.command.CommandSender
 import net.mamoe.mirai.console.command.SimpleCommand
 import net.mamoe.mirai.console.command.descriptor.ExperimentalCommandDescriptors
@@ -41,7 +42,7 @@ object Clean: SimpleCommand(
 
     private val task = object : TimerTask() {
         override fun run() {
-            Utils.cleanupDirectory(cacheDir)
+            cleanupDirectory(cacheDir)
                 .onFailure {
                     MiraiConsoleThrowIt.logger.error("定时清理缓存失败", it)
                 }
@@ -52,7 +53,7 @@ object Clean: SimpleCommand(
     }
 
     init {
-        scheduler.scheduleAtFixedRate(task, Utils.getMidnight(), 24 * 60 * 60 * 1000)
+        scheduler.scheduleAtFixedRate(task, getMidnight(), 24 * 60 * 60 * 1000)
     }
 
     @Suppress("unused")
@@ -64,7 +65,7 @@ object Clean: SimpleCommand(
     @Suppress("unused")
     @Handler
     suspend fun CommandSender.handle() {
-        Utils.cleanupDirectory(cacheDir)
+        cleanupDirectory(cacheDir)
             .onFailure { exception ->
                 run {
                     MiraiConsoleThrowIt.logger.error(exception)

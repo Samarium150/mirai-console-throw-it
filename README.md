@@ -14,11 +14,11 @@ Fork自 [ThrowIt-Mirai](https://github.com/MoeMegu/ThrowIt-Mirai)
 
 将插件置于plugin目录下, 并安装chat-command插件
 
-使用插件需要权限 com.github.samarium150.mirai-console-throw-it:command.throw
+使用插件需要权限 io.github.samarium150.mirai.plugin.mirai-console-throw-it:command.throw
 
 使用以下指令来给所有群成员权限
 
-`> /perm permit m* com.github.samarium150.mirai-console-throw-it:command.throw`
+`> /perm permit m* io.github.samarium150.mirai.plugin.mirai-console-throw-it:command.throw`
 
 聊天环境使用命令:
 

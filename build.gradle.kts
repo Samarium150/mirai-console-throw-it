@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.samarium150"
-version = "1.2.0"
+version = "1.2.1"
 
 repositories {
     mavenLocal()
@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation("net.coobird:thumbnailator:0.4.14")
+    implementation("net.coobird:thumbnailator:0.4.15")
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {

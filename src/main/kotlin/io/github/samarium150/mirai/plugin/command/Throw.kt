@@ -17,7 +17,7 @@
 package io.github.samarium150.mirai.plugin.command
 
 import io.github.samarium150.mirai.plugin.MiraiConsoleThrowIt
-import io.github.samarium150.mirai.plugin.Utils
+import io.github.samarium150.mirai.plugin.util.processAvatar
 import net.mamoe.mirai.console.command.CommandSenderOnMessage
 import net.mamoe.mirai.console.command.SimpleCommand
 import net.mamoe.mirai.console.command.descriptor.ExperimentalCommandDescriptors
@@ -57,7 +57,7 @@ object Throw: SimpleCommand(
         val resultPath = MiraiConsoleThrowIt.dataPath + target.id + ".png"
         val result = File(resultPath)
         if (!result.exists()) {
-            Utils.processAvatar(target.avatarUrl, resultPath)
+            processAvatar(target.avatarUrl, resultPath)
                 .onFailure { exception ->
                     run {
                         MiraiConsoleThrowIt.logger.error(exception)
