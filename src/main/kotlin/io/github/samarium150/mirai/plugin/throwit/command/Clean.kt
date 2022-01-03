@@ -14,11 +14,11 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>
  */
-package io.github.samarium150.mirai.plugin.command
+package io.github.samarium150.mirai.plugin.throwit.command
 
-import io.github.samarium150.mirai.plugin.MiraiConsoleThrowIt
-import io.github.samarium150.mirai.plugin.util.cleanupDirectory
-import io.github.samarium150.mirai.plugin.util.getMidnight
+import io.github.samarium150.mirai.plugin.throwit.MiraiConsoleThrowIt
+import io.github.samarium150.mirai.plugin.throwit.util.cleanupDirectory
+import io.github.samarium150.mirai.plugin.throwit.util.getMidnight
 import net.mamoe.mirai.console.command.CommandSender
 import net.mamoe.mirai.console.command.SimpleCommand
 import net.mamoe.mirai.console.command.descriptor.ExperimentalCommandDescriptors

@@ -14,10 +14,10 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>
  */
-package io.github.samarium150.mirai.plugin
+package io.github.samarium150.mirai.plugin.throwit
 
-import io.github.samarium150.mirai.plugin.command.Clean
-import io.github.samarium150.mirai.plugin.command.Throw
+import io.github.samarium150.mirai.plugin.throwit.command.Clean
+import io.github.samarium150.mirai.plugin.throwit.command.Throw
 import net.mamoe.mirai.console.command.CommandManager.INSTANCE.register
 import net.mamoe.mirai.console.command.CommandManager.INSTANCE.unregister
 import net.mamoe.mirai.console.plugin.id
